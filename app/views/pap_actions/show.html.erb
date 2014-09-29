@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Acting person title:</b>
+  <%= @pap_action.acting_person_title %>
+</p>
+
+<p>
+  <b>Acting person:</b>
+  <%= @pap_action.acting_person %>
+</p>
+
+<p>
+  <b>Action statement:</b>
+  <%= @pap_action.action_statement %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @pap_action.description %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @pap_action.priority %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%= @pap_action.position %>
+</p>
+
+<p>
+  <b>State of action:</b>
+  <%= @pap_action.state_of_action %>
+</p>
+
+
+<%= link_to 'Edit', edit_pap_action_path(@pap_action) %> |
+<%= link_to 'Back', pap_actions_path %>

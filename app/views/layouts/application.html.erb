@@ -7,8 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render 'layouts/header' %>
 
+  <!-- TODO: replace devise flash with custom flash hash -->
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 <%= yield %>
 
+  <%= render 'layouts/footer' %>
 </body>
 </html>

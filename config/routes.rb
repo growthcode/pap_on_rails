@@ -1,4 +1,20 @@
 PapOnRails::Application.routes.draw do
+
+  get 'about' => 'pages#about'
+
+  root to: "pages#home"
+
+  devise_for :users
+
+  resources :users do
+    resources :projects do
+      resources :pap_actions
+    end
+  end
+
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

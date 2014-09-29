@@ -1,0 +1,45 @@
+<%= form_for(@pap_action) do |f| %>
+  <% if @pap_action.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pap_action.errors.count, "error") %> prohibited this pap_action from being saved:</h2>
+
+      <ul>
+      <% @pap_action.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :acting_person_title %><br />
+    <%= f.text_field :acting_person_title %>
+  </div>
+  <div class="field">
+    <%= f.label :acting_person %><br />
+    <%= f.text_field :acting_person %>
+  </div>
+  <div class="field">
+    <%= f.label :action_statement %><br />
+    <%= f.text_field :action_statement %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :priority %><br />
+    <%= f.text_field :priority %>
+  </div>
+  <div class="field">
+    <%= f.label :position %><br />
+    <%= f.text_field :position %>
+  </div>
+  <div class="field">
+    <%= f.label :state_of_action %><br />
+    <%= f.text_field :state_of_action %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
