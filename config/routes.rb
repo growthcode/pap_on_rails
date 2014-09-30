@@ -1,17 +1,16 @@
 PapOnRails::Application.routes.draw do
 
-  get 'about' => 'pages#about'
+  root :to => "pages#home"
 
-  root to: "pages#home"
+  get 'about' => 'pages#about'
 
   devise_for :users
 
-  resources :users do
-    resources :projects do
-      resources :pap_actions
-    end
-  end
+  resources :users
 
+  resources :projects do
+    resources :pap_actions
+  end
 
 
 
