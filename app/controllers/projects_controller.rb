@@ -1,5 +1,4 @@
 class ProjectsController < ApplicationController
-  # before_action :authenticate_user! #-> routes to the login / signup if not authenticated
 
   # GET /projects
   # GET /projects.json
@@ -26,7 +25,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   # GET /projects/new.json
   def new
-    @project = current_user.projects.new
+    @project = current_user.projects.new(params[:project])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,7 +41,7 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = current_user.project.new(params[:project])
+    @project = current_user.projects.new(params[:project])
 
     respond_to do |format|
       if @project.save

@@ -16,7 +16,7 @@ RSpec.describe "pap_actions/new", :type => :view do
   it "renders new pap_action form" do
     render
 
-    assert_select "form[action=?][method=?]", pap_actions_path, "post" do
+    assert_select "form[action=?][method=?]", project_pap_actions_path, "post" do
 
       assert_select "input#pap_action_acting_person_title[name=?]", "pap_action[acting_person_title]"
 

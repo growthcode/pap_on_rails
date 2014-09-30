@@ -23,13 +23,14 @@
     <td><%= pap_action.priority %></td>
     <td><%= pap_action.position %></td>
     <td><%= pap_action.state_of_action %></td>
-    <td><%= link_to 'Show', pap_action %></td>
-    <td><%= link_to 'Edit', edit_pap_action_path(pap_action) %></td>
-    <td><%= link_to 'Destroy', pap_action, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', [@project, pap_action] %></td>
+    <!-- action was default to index, writing this is the same as SAME AS #=>  link_to 'Show', project_pap_action_path(@project, pap_action) -->
+    <td><%= link_to 'Edit', edit_project_pap_action_path(@project, pap_action) %></td>
+    <td><%= link_to 'Destroy', [@project, pap_action], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Pap action', new_pap_action_path %>
+<%= link_to 'New Pap action', new_project_pap_action_path %>

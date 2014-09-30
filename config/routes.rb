@@ -7,8 +7,10 @@ PapOnRails::Application.routes.draw do
   devise_for :users
 
   resources :users
-  resources :projects
-  resources :pap_actions
+
+  resources :projects do
+    resources :pap_actions
+  end
 
 
 

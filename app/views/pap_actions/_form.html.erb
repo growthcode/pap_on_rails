@@ -1,4 +1,4 @@
-<%= form_for(@pap_action) do |f| %>
+<%= form_for([@project, @pap_action]) do |f| %>
   <% if @pap_action.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pap_action.errors.count, "error") %> prohibited this pap_action from being saved:</h2>
