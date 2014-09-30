@@ -1,8 +1,10 @@
 class PapActionsController < ApplicationController
+  # before_action :authenticate_user! #-> routes to the login / signup if not authenticated
+
   # GET /pap_actions
   # GET /pap_actions.json
   def index
-    @pap_actions = PapAction.all
+    @pap_actions = current_user.projects.pap_actions.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class PapActionsController < ApplicationController
   # GET /pap_actions/1
   # GET /pap_actions/1.json
   def show
-    @pap_action = PapAction.find(params[:id])
+    @pap_action = current_user.projects.pap_actions.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,7 @@ class PapActionsController < ApplicationController
   # GET /pap_actions/new
   # GET /pap_actions/new.json
   def new
-    @pap_action = PapAction.new
+    @pap_action = current_user.projects.pap_actions.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +36,13 @@ class PapActionsController < ApplicationController
 
   # GET /pap_actions/1/edit
   def edit
-    @pap_action = PapAction.find(params[:id])
+    @pap_action = current_user.projects.pap_actions.find(params[:id])
   end
 
   # POST /pap_actions
   # POST /pap_actions.json
   def create
-    @pap_action = PapAction.new(params[:pap_action])
+    @pap_action = current_user.projects.pap_actions.new(params[:pap_action])
 
     respond_to do |format|
       if @pap_action.save
@@ -56,7 +58,7 @@ class PapActionsController < ApplicationController
   # PUT /pap_actions/1
   # PUT /pap_actions/1.json
   def update
-    @pap_action = PapAction.find(params[:id])
+    @pap_action = current_user.projects.pap_actions.find(params[:id])
 
     respond_to do |format|
       if @pap_action.update_attributes(params[:pap_action])
@@ -72,7 +74,7 @@ class PapActionsController < ApplicationController
   # DELETE /pap_actions/1
   # DELETE /pap_actions/1.json
   def destroy
-    @pap_action = PapAction.find(params[:id])
+    @pap_action = current_user.projects.pap_actions.find(params[:id])
     @pap_action.destroy
 
     respond_to do |format|
