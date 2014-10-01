@@ -12,8 +12,14 @@
   <!-- TODO: replace devise flash with custom flash hash -->
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-<%= yield %>
 
-  <%= render 'layouts/footer' %>
+  <div class="container">
+    <%= yield %>
+    <br>
+    <br>
+    <br>
+    <%= render 'layouts/footer' %>
+  </div>
+
 </body>
 </html>

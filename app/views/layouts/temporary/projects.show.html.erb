@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+
+<br>
+<br>
+<br>
+
+<p>
+  <b>Project name:</b>
+  <%= @project.project_name %> |
+  <%= link_to 'Update Name', edit_project_path(@project) %> |
+  <%= link_to 'Back', projects_path %>
+</p>
+
+<% @project.pap_actions.each do |pap_action| %>
+  <div class="row">
+    <div class="span6 offset3">
+      <div class="well">
+        <ul>
+          <li>
+            <%= pap_action.position %> |
+            <%= pap_action.priority %> |
+            <%= pap_action.acting_person_title %> |
+            <%= pap_action.acting_person %> |
+            <%= pap_action.action_statement %> |
+            <%= pap_action.description %> |
+            <%= pap_action.state_of_action %> |
+            <% if current_user == @project.user %>
+              <%= link_to 'Show', [@project, pap_action] %> | <%= link_to 'Edit', edit_project_pap_action_path(@project, pap_action) %> | <%= link_to 'Destroy', [@project, pap_action], method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= link_to 'New Pap action', new_project_pap_action_path(@project) %>
