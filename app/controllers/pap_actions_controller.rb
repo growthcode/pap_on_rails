@@ -12,18 +12,6 @@ class PapActionsController < ApplicationController
     end
   end
 
-  # GET /pap_actions/1
-  # GET /pap_actions/1.json
-  def show
-    @project = current_user.projects.find(params[:project_id])
-    @pap_action = @project.pap_actions.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @pap_action }
-    end
-  end
-
   # GET /pap_actions/new
   # GET /pap_actions/new.json
   def new

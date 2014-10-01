@@ -1,6 +1,11 @@
-<h1>Listing pap_actions</h1>
+<h1><%= @project.project_name %></h1>
+<p>
+  <%= link_to 'Update Name', edit_project_path(@project) %> |
+  <%= link_to 'Back', projects_path %>
+</p>
+<br />
 
-<table>
+<table class="table table-striped table-condensed table-hover">
   <tr>
     <th>Acting person title</th>
     <th>Acting person</th>
@@ -23,8 +28,9 @@
     <td><%= pap_action.priority %></td>
     <td><%= pap_action.position %></td>
     <td><%= pap_action.state_of_action %></td>
-    <td><%= link_to 'Show', [@project, pap_action] %></td>
-    <!-- action was default to index, writing this is the same as SAME AS #=>  link_to 'Show', project_pap_action_path(@project, pap_action) -->
+    <!-- 2 ways to go to show page, which is the default action -->
+    <!-- link_to 'Show', [@project, pap_action] -->
+    <!-- link_to 'Show', project_pap_action_path(@project, pap_action) -->
     <td><%= link_to 'Edit', edit_project_pap_action_path(@project, pap_action) %></td>
     <td><%= link_to 'Destroy', [@project, pap_action], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
