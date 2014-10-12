@@ -27,11 +27,12 @@ gem 'devise'
 gem 'jquery-rails'
 
 group :test, :development do
-   gem 'rspec-rails'
-   gem 'capybara'
-   gem 'launchy'
-   gem 'factory_girl_rails'
-   gem 'console.log'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'factory_girl_rails'
+  gem 'console.log'
+  gem 'awesome_print'
 end
 
 group :development do    #access at rails/routes
