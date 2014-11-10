@@ -8,4 +8,8 @@ class PagesController < ApplicationController
 
   def about
   end
+
+  def sandbox
+    # place to play with code, remove when done playing around and app is finished, or don't want it to be in the routes
+  end
 end

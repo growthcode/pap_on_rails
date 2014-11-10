@@ -39,7 +39,7 @@ class PapActionsController < ApplicationController
 
     respond_to do |format|
       if @pap_action.save
-        format.html { redirect_to [@project, @pap_action], notice: 'Pap action was successfully created.' }
+        format.html { redirect_to project_pap_actions_path, notice: 'Pap action was successfully created.' }
         format.json { render json: @pap_action, status: :created, location: [@project, @pap_action] }
       else
         format.html { render action: "new" }
@@ -56,7 +56,7 @@ class PapActionsController < ApplicationController
 
     respond_to do |format|
       if @pap_action.update_attributes(params[:pap_action])
-        format.html { redirect_to [@project, @pap_action], notice: 'Pap action was successfully updated.' }
+        format.html { redirect_to project_pap_actions_path, notice: 'Pap action was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

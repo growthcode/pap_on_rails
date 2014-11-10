@@ -4,6 +4,8 @@ PapOnRails::Application.routes.draw do
 
   get 'about' => 'pages#about'
 
+  get 'sandbox' => 'pages#sandbox'
+
   devise_for :users
 
   resources :users
