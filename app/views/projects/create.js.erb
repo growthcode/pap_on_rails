@@ -1,0 +1,4 @@
+$("#new_project").remove();
+$("#projects_new_link").show();
+$('#projects_table_list tbody').append('<%= j render partial: "project_table_row", locals: {project: @project} %>');
+

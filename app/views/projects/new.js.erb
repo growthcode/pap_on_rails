@@ -1,0 +1,11 @@
+// hide the link that opened the form to new.js.erb
+$("#projects_new_link").hide().after("<%= j (render 'form') %>");
+
+
+
+
+// render form where id="project-form"
+// $('#project-form').html("<%= j (render 'form') %>");
+
+// render form by sliding down at speed of 350
+// $('#project-form').slideDown(350);

@@ -1,0 +1,9 @@
+$("#edit_project_<%= @project.id %>").remove();
+$("#<%= @project.id %>").html('<%= j render partial: "project_table_row", locals: {project: @project} %>');
+
+
+
+
+
+
+

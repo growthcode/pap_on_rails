@@ -20,4 +20,18 @@ $ ->
     paintIt(this, backgroundColor, textColor)
 
 
+# jQuery(function($) {
+  # $("#sandbox").on('ajax:success', function(event,data,status, xhr) {
+  #     $(this).css("background-color", "red")
+  #   });
+# });
+# 
+# 
+jQuery ($) ->
+  $("#sandbox").on "ajax:success", (event, data, status, xhr) ->
+    $(this).css "background-color", "red"
+
+
+
+
 # =============== Sandbox page end ================
