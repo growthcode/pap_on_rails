@@ -14,3 +14,16 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.green_outline_hover:hover {
+  outline: 2px dotted green;
+}
+
+.margin_test {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.project_margin_headline {
+  margin: 0;
+}
