@@ -4,7 +4,7 @@ PapOnRails::Application.routes.draw do
 
   get 'about' => 'pages#about'
 
-  get 'sandbox' => 'pages#sandbox'
+  get 'testAjax' => 'projects#testAjax'
 
   devise_for :users
 

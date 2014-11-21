@@ -1,5 +1,19 @@
 class ProjectsController < ApplicationController
 
+
+  def testAjax
+    @project = current_user.projects.find(1)
+
+    respond_to do |format|
+      # format.html # index.html.erb
+      format.json { render json: @project }
+    end
+  end
+
+
+
+
+
   # GET /projects
   # GET /projects.json
   def index
@@ -8,7 +22,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }
-    end
+    end    
   end
 
   # GET /projects/new
