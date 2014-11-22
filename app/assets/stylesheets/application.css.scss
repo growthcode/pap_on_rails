@@ -15,6 +15,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.red_outline_hover:hover {
+  outline: 1px solid red;
+}
+
 .green_outline_hover:hover {
   outline: 2px dotted green;
 }
@@ -27,3 +31,4 @@
 .project_margin_headline {
   margin: 0;
 }
+

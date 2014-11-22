@@ -1,1 +1,1 @@
-$("#<%= @project.id %>").html("").after("<%= j (render 'form') %>");
+$("#<%= @project.id %>").html("").append("<td colspan='3'><%= j (render 'form') %></td>")

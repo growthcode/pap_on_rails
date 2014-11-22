@@ -1,39 +1,20 @@
 class ProjectsController < ApplicationController
 
-
-  def testAjax
-    @project = current_user.projects.find(1)
-
-    respond_to do |format|
-      # format.html # index.html.erb
-      format.json { render json: @project }
-    end
-  end
-
-
-
-
-
   # GET /projects
-  # GET /projects.json
   def index
-    all_current_user_projects
+    all_projects_object
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @projects }
     end    
   end
 
   # GET /projects/new
-  # GET /projects/new.json
   def new
-    @project = current_user.projects.new(weak_project_params)
+    new_project_object
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.js # need the new.js.erb 
-      format.json { render json: @project }
+      format.js # new.js.erb 
     end
   end
 
@@ -42,64 +23,50 @@ class ProjectsController < ApplicationController
     set_projects
 
     respond_to do |format|
-      format.html # edit.html.erb
-      format.js # need the new.js.erb 
+      format.js # edit.js.erb 
     end
   end
 
   # POST /projects
-  # POST /projects.json
   def create
-    @project = current_user.projects.new(weak_project_params)
+    new_project_object
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to projects_path, notice: 'Project was successfully created.' }
-        format.js 
-        format.json { render json: @project, status: :created, location: @project }
+        format.js # create.js.erb 
       else
-        format.html { render action: "new" }
         format.js { render action: "new" }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PUT /projects/1
-  # PUT /projects/1.json
   def update
     set_projects
 
 
     respond_to do |format|
       if @project.update_attributes(weak_project_params)
-        format.html { redirect_to projects_path, notice: 'Project was successfully updated.' }
-        format.js
-        format.json { head :no_content }
+        format.js # update.js.erb 
       else
-        format.html { render action: "edit" }
         format.js { render action: "edit" }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /projects/1
-  # DELETE /projects/1.json
   def destroy
     set_projects
 
     @project.destroy
 
     respond_to do |format|
-      format.html { redirect_to projects_url }
-      format.js
-      format.json { head :no_content }
+      format.js # destroy.js.erb 
     end
   end
 
   private
-    def all_current_user_projects
+    def all_projects_object
       @projects = current_user.projects.all
     end
 
@@ -110,7 +77,12 @@ class ProjectsController < ApplicationController
     # weak params, update these to below strong params when on rails 4
     # these allow any updates to params and strong params are white listed
     def weak_project_params
+      # update to strong params in 4.1.4
       params[:project]
+    end
+
+    def new_project_object
+      @project = current_user.projects.new(weak_project_params)
     end
 
     # strong params are not not for rails 3.2, need rails 4, these are how you white-list params
