@@ -18,17 +18,20 @@
 .red_outline_hover:hover {
   outline: 1px solid red;
 }
+.blue_outline_hover {
+  outline: 2px solid blue;
+}
 
 .green_outline_hover:hover {
   outline: 2px dotted green;
 }
 
-.margin_test {
+.table_headline_and_create {
   margin-top: 20px;
   margin-bottom: 15px;
 }
 
-.project_margin_headline {
+.zero_margin_headline {
   margin: 0;
 }
 

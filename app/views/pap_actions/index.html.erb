@@ -1,8 +1,19 @@
-<h1><%= @project.project_name %></h1>
-<p>
-  <%= link_to 'Update Name', edit_project_path(@project) %> |
-  <%= link_to 'Back', projects_path %>
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <h1 id="headline_<%= @project.id %>" class="table_headline_and_create"><%= @project.project_name %></h1>
+    <p>
+      <%= link_to 'Update Name', edit_project_path(@project), remote: true %> |
+      <%= link_to 'Back', projects_path %>
+    </p>
+  </div>
+  
+  <div class="col-md-6 table_headline_and_create">
+    <div id="action_new_link" class="form-group zero_margin_headline pull-right">
+      <%= link_to 'New Action', new_project_pap_action_path, class: "btn btn-primary btn-lg", remote: true %>
+    </div>
+  </div>
+</div>
+
 <br />
 
 <table class="table table-striped table-condensed table-hover">
