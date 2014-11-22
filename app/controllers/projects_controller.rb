@@ -46,7 +46,7 @@ class ProjectsController < ApplicationController
 
 
     respond_to do |format|
-      if @project.update_attributes(weak_project_params)
+      if @project.update_attributes(params[:project])
         format.js # update.js.erb 
       else
         format.js { render action: "edit" }
@@ -74,15 +74,8 @@ class ProjectsController < ApplicationController
       @project = current_user.projects.find(params[:id])
     end
 
-    # weak params, update these to below strong params when on rails 4
-    # these allow any updates to params and strong params are white listed
-    def weak_project_params
-      # update to strong params in 4.1.4
-      params[:project]
-    end
-
     def new_project_object
-      @project = current_user.projects.new(weak_project_params)
+      @project = current_user.projects.new(params[:project])
     end
 
     # strong params are not not for rails 3.2, need rails 4, these are how you white-list params

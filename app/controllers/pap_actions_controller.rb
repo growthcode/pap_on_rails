@@ -3,8 +3,8 @@ class PapActionsController < ApplicationController
   # GET /pap_actions
   # GET /pap_actions.json
   def index
-    @project = current_user.projects.find(params[:project_id])
-    @pap_actions = @project.pap_actions.all
+    current_project
+    all_project_actions
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,8 +15,8 @@ class PapActionsController < ApplicationController
   # GET /pap_actions/new
   # GET /pap_actions/new.json
   def new
-    @project = current_user.projects.find(params[:project_id])
-    @pap_action = @project.pap_actions.new(params[:pap_action])
+    current_project
+    new_project_action
 
     respond_to do |format|
       format.html # new.html.erb
@@ -26,16 +26,16 @@ class PapActionsController < ApplicationController
 
   # GET /pap_actions/1/edit
   def edit
-    @project = current_user.projects.find(params[:project_id])
-    @pap_action = @project.pap_actions.find(params[:id])
+    current_project
+    set_project_action
   end
 
   # POST /pap_actions
   # POST /pap_actions.json
   def create
 
-    @project = current_user.projects.find(params[:project_id])
-    @pap_action = @project.pap_actions.new(params[:pap_action])
+    current_project
+    new_project_action
 
     respond_to do |format|
       if @pap_action.save
@@ -51,8 +51,8 @@ class PapActionsController < ApplicationController
   # PUT /pap_actions/1
   # PUT /pap_actions/1.json
   def update
-    @project = current_user.projects.find(params[:project_id])
-    @pap_action = @project.pap_actions.find(params[:id])
+    current_project
+    set_project_action
 
     respond_to do |format|
       if @pap_action.update_attributes(params[:pap_action])
@@ -68,8 +68,9 @@ class PapActionsController < ApplicationController
   # DELETE /pap_actions/1
   # DELETE /pap_actions/1.json
   def destroy
-    @project = current_user.projects.find(params[:project_id])
-    @pap_action = @project.pap_actions.find(params[:id])
+    current_project
+    set_project_action
+
     @pap_action.destroy
 
     respond_to do |format|
@@ -78,5 +79,25 @@ class PapActionsController < ApplicationController
     end
   end
 
+  private
+    def current_project
+      @project = current_user.projects.find(params[:project_id])
+    end
 
+    def all_project_actions
+      @pap_actions = @project.pap_actions.all
+    end
+
+    def new_project_action
+      @pap_action = @project.pap_actions.new(params[:pap_action])
+    end
+
+    def set_project_action
+      @pap_action = @project.pap_actions.find(params[:id])
+    end
+
+    # update and use this #=> strong params are not not for rails 3.2, need rails 4, these are how you white-list params
+    # def action_params
+      # params.require(:pap_action).permit(:acting_person, :acting_person_title, :action_statement, :description, :position, :priority, :state_of_action)
+    # end
 end
