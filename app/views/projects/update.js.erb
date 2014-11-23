@@ -1,5 +1,5 @@
 $("#edit_project_<%= @project.id %>").remove();
-$("#<%= @project.id %>").html('<%= j render partial: "project_table_row", locals: {project: @project} %>');
+$("#project_<%= @project.id %>").html('<%= j render partial: "project_table_row", locals: {project: @project} %>');
 
 $("#headline_<%= @project.id %>").html("<%= @project.project_name %>");
 

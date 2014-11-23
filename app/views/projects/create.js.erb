@@ -1,6 +1,6 @@
 $("#new_project").remove();
 $("#projects_new_link").show();
-$('#projects_table_list tbody').append('<tr id="<%= @project.id %>">'+'<%= j render partial: "project_table_row", locals: {project: @project} %>'+'</tr>');
+$('#projects_table_list tbody').append('<tr id="project_<%= @project.id %>">'+'<%= j render partial: "project_table_row", locals: {project: @project} %>'+'</tr>');
 
 
 

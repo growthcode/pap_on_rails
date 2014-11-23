@@ -22,7 +22,7 @@
       </tr>
 
     <% @projects.each do |project| %>
-      <tr id="<%= project.id %>">
+      <tr id="project_<%= project.id %>">
         <%= render partial: "project_table_row", locals: {project: project} %>
       </tr>
     <% end %>
