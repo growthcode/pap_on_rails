@@ -7,6 +7,7 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 
+gem 'acts_as_list'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,6 +19,7 @@ group :assets do
   # gem "font-awesome-rails" #=> goes in scss @import "font-awesome";
   gem 'bootstrap-sass', '~> 3.2.0'
   gem 'autoprefixer-rails'
+
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 end
@@ -25,6 +27,7 @@ end
 gem 'devise'
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 group :test, :development do
   gem 'rspec-rails'
