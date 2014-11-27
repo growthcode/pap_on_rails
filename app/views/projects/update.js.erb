@@ -1,6 +1,7 @@
 $("#edit_project_<%= @project.id %>").remove();
 $("#project_<%= @project.id %>").html('<%= j render partial: "project_table_row", locals: {project: @project} %>');
 
+// Updates project names on the 'pap_actions' index page
 $("#headline_<%= @project.id %>").html("<%= @project.project_name %>");
 
 

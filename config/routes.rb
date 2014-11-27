@@ -4,14 +4,15 @@ PapOnRails::Application.routes.draw do
 
   get 'about' => 'pages#about'
 
-  get 'testAjax' => 'projects#testAjax'
-
   devise_for :users
 
   resources :users
 
   resources :projects do
-    resources :pap_actions
+    collection {post :sort}
+    resources :pap_actions do 
+      collection {post :sort}
+    end
   end
 
 

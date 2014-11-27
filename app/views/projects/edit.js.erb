@@ -1,2 +1,4 @@
 $("#project_<%= @project.id %>").html("").append("<td colspan='3'><%= j (render 'form') %></td>")
+
+// Edits the project Name on the actions view page... this makes form for editing
 $("#headline_<%= @project.id %>").html("").append("<%= j (render 'form') %>")

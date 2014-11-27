@@ -1,4 +1,3 @@
 // hide the link that opened the form to new.js.erb
-$("#new_project").remove();
 
 $("#projects_new_link").hide().after("<%= j (render 'form') %>");

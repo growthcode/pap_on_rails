@@ -65,9 +65,16 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def sort
+    params[:project].each_with_index do |id, index|
+      Project.update_all({position: index+1}, {id: id})
+    end
+    render nothing: true
+  end
+
   private
     def all_projects_object
-      @projects = current_user.projects.all
+      @projects = current_user.projects.order("position")
     end
 
     def set_projects
@@ -75,7 +82,10 @@ class ProjectsController < ApplicationController
     end
 
     def new_project_object
-      @project = current_user.projects.new(params[:project])
+      total_num_projects = current_user.projects.all.length
+      @project = current_user.projects.new(
+        params[:project])
+      @project.position = total_num_projects + 1
     end
 
     # strong params are not not for rails 3.2, need rails 4, these are how you white-list params

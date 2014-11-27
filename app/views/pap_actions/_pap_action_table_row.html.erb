@@ -1,0 +1,12 @@
+          <td><%= pap_action.acting_person_title %></td>
+          <td><%= pap_action.acting_person %></td>
+          <td><%= pap_action.action_statement %></td>
+          <td><%= pap_action.description %></td>
+          <td><%= pap_action.priority %></td>
+          <td><%= pap_action.position %></td>
+          <td><%= pap_action.state_of_action %></td>
+          <!-- 2 ways to go to show page, which is the default action -->
+          <!-- link_to 'Show', [@project, pap_action] -->
+          <!-- link_to 'Show', project_pap_action_path(@project, pap_action) -->
+          <td><%= link_to 'Edit', edit_project_pap_action_path(@project, pap_action), remote: true   %></td>
+          <td><%= link_to 'Destroy', [@project, pap_action], method: :delete, data: { confirm: 'Are you sure?' }, remote: true   %></td>

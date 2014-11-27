@@ -5,10 +5,10 @@ class PapActionsController < ApplicationController
   def index
     current_project
     all_project_actions
+    new_project_action
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @pap_actions }
     end
   end
 
@@ -19,8 +19,7 @@ class PapActionsController < ApplicationController
     new_project_action
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @pap_action }
+      format.js
     end
   end
 
@@ -28,22 +27,23 @@ class PapActionsController < ApplicationController
   def edit
     current_project
     set_project_action
+    
+    respond_to do |format|
+      format.js # edit.js.erb 
+    end
   end
 
   # POST /pap_actions
   # POST /pap_actions.json
   def create
-
     current_project
     new_project_action
 
     respond_to do |format|
       if @pap_action.save
-        format.html { redirect_to project_pap_actions_path, notice: 'Pap action was successfully created.' }
-        format.json { render json: @pap_action, status: :created, location: [@project, @pap_action] }
+        format.js
       else
-        format.html { render action: "new" }
-        format.json { render json: @pap_action.errors, status: :unprocessable_entity }
+        format.js { render action: "new" }
       end
     end
   end
@@ -56,11 +56,9 @@ class PapActionsController < ApplicationController
 
     respond_to do |format|
       if @pap_action.update_attributes(params[:pap_action])
-        format.html { redirect_to project_pap_actions_path, notice: 'Pap action was successfully updated.' }
-        format.json { head :no_content }
+        format.js
       else
-        format.html { render action: "edit" }
-        format.json { render json: @pap_action.errors, status: :unprocessable_entity }
+        format.js { render action: "edit" }
       end
     end
   end
@@ -74,9 +72,15 @@ class PapActionsController < ApplicationController
     @pap_action.destroy
 
     respond_to do |format|
-      format.html { redirect_to project_pap_actions_url }
-      format.json { head :no_content }
+      format.js
     end
+  end
+
+  def sort
+    params[:pap_action].each_with_index do |id, index|
+      PapAction.update_all({position: index+1}, {id: id})
+    end
+    render nothing: true
   end
 
   private
@@ -85,15 +89,17 @@ class PapActionsController < ApplicationController
     end
 
     def all_project_actions
-      @pap_actions = @project.pap_actions.all
+      @pap_actions = @project.pap_actions.order("position")
     end
 
     def new_project_action
       @pap_action = @project.pap_actions.new(params[:pap_action])
+      @pap_action.priority = @pap_action.priority.to_i
     end
 
     def set_project_action
       @pap_action = @project.pap_actions.find(params[:id])
+      @pap_action.priority = @pap_action.priority.to_i
     end
 
     # update and use this #=> strong params are not not for rails 3.2, need rails 4, these are how you white-list params

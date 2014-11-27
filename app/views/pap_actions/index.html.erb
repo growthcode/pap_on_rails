@@ -1,53 +1,60 @@
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-3">
+    <%= render 'form' %>
+  </div>
+  <div class="col-md-9">
+
+  <div class="row">
+  <div class="col-md-12">
     <h1 id="headline_<%= @project.id %>" class="table_headline_and_create"><%= @project.project_name %></h1>
     <p>
       <%= link_to 'Update Name', edit_project_path(@project), remote: true %> |
       <%= link_to 'Back', projects_path %>
     </p>
-  </div>
-  
-  <div class="col-md-6 table_headline_and_create">
+<!--   <div class="col-md-6 table_headline_and_create">
     <div id="action_new_link" class="form-group zero_margin_headline pull-right">
       <%= link_to 'New Action', new_project_pap_action_path, class: "btn btn-primary btn-lg", remote: true %>
     </div>
+  </div> -->
   </div>
 </div>
 
 <br />
 
-<table class="table table-striped table-condensed table-hover">
-  <tr>
-    <th>Acting person title</th>
-    <th>Acting person</th>
-    <th>Action statement</th>
-    <th>Description</th>
-    <th>Priority</th>
-    <th>Position</th>
-    <th>State of action</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @pap_actions.each do |pap_action| %>
-  <tr>
-    <td><%= pap_action.acting_person_title %></td>
-    <td><%= pap_action.acting_person %></td>
-    <td><%= pap_action.action_statement %></td>
-    <td><%= pap_action.description %></td>
-    <td><%= pap_action.priority %></td>
-    <td><%= pap_action.position %></td>
-    <td><%= pap_action.state_of_action %></td>
-    <!-- 2 ways to go to show page, which is the default action -->
-    <!-- link_to 'Show', [@project, pap_action] -->
-    <!-- link_to 'Show', project_pap_action_path(@project, pap_action) -->
-    <td><%= link_to 'Edit', edit_project_pap_action_path(@project, pap_action) %></td>
-    <td><%= link_to 'Destroy', [@project, pap_action], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
 
-<br />
 
-<%= link_to 'New Pap action', new_project_pap_action_path %>
+  <div class="col-md-12">
+    <table id="pap_actions_table_list" class="table table-striped table-condensed table-hover">
+      <thead>
+        <tr>
+          <th>Acting person title</th>
+          <th>Acting person</th>
+          <th>Action statement</th>
+          <th>Description</th>
+          <th>Priority</th>
+          <th>Position</th>
+          <th>State of action</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody id="pap_action_sortable" data-sort-url="<%= sort_project_pap_actions_path %>">
+        <% @pap_actions.each do |pap_action| %>
+
+        <tr id="pap_action_<%= pap_action.id %>">
+          <%= render partial: "pap_action_table_row", locals: {pap_action: pap_action} %>
+        </tr>
+
+        <% end %>
+      </tbody>
+    </table>
+
+    <br />
+  </div>
+
+
+</div>
+</div>

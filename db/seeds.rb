@@ -13,6 +13,7 @@ User.all.each do |user|
     puts "================= Seed User '##{user_count}' ================="
     puts "Object: #{user}"
     puts "Name: #{user.first_name} #{user.last_name}"
+    puts "Email: #{user.email}"
 
     project_count = 0
     user.projects.each do |project|
@@ -24,6 +25,22 @@ User.all.each do |user|
     puts "#{user.first_name} #{user.last_name} and projects -- DESTROYED" + "\n\n"
   end
 end
+
+hethe = User.create!(
+  first_name: "Hethe",
+  last_name: "Berg",
+  email: "asdf@asdf.com",
+  password: 'asdfasdf',
+  password_confirmation: 'asdfasdf',
+  organization: 'Faker_Seed'
+)
+hethe.projects.create!(
+    [{project_name: "Perfect Sales Process"},
+    {project_name: "WikiLogic App"},
+    {project_name: "WikiWit"},
+    {project_name: "Ruby OOP vs. Universe OOP"}]
+  )
+
 
 5.times do 
   user_first_name = Faker::Name.first_name
