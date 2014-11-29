@@ -23,7 +23,10 @@
 
 
 
+<hr>
+<hr>
 
+<div class="row">
   <div class="col-md-12">
     <table id="pap_actions_table_list" class="table table-striped table-condensed table-hover">
       <thead>
@@ -54,7 +57,30 @@
 
     <br />
   </div>
+</div>
 
+
+<hr>
+<hr>
+
+
+<!-- ======================================= -->
+<!-- ======================================= -->
+<!-- ======================================= -->
+<!-- ======================================= -->
+
+
+<div class="row">
+  <div class="col-md-12">
+    <ul id="pap_action_sortable" data-sort-url="<%= sort_project_pap_actions_path %>">
+      
+        <% @pap_actions.each do |pap_action| %>
+          <%= render partial: "pap_action_ul_li", locals: {pap_action: pap_action} %>
+        <% end %>
+        
+    <br />
+  </div>
+</div>
 
 </div>
 </div>
