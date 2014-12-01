@@ -7,17 +7,20 @@
           <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapsed_<%= pap_action.id %>" aria-expanded="false" aria-controls="collapsed_<%= pap_action.id %>">
             <%= pap_action.action_statement %>
           </a>
-
         </h4>
       </div>
 
       <div id="collapsed_<%= pap_action.id %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_<%= pap_action.id %>">
         <div class="panel-body">
+        <div class="pap_action_edit_delete">
+          <%= link_to 'Edit', edit_project_pap_action_path(@project, pap_action), remote: true   %> | 
+          <%= link_to 'Delete', [@project, pap_action], method: :delete, data: { confirm: 'Are you sure?' }, remote: true   %>
+        </div>
         <p><%= pap_action.acting_person_title %>: <%= pap_action.acting_person %></p>
-        <p>Description: <%= pap_action.description %></p>
-        <p>State of action: <%= pap_action.state_of_action %></p>
-        <p><%= link_to 'Edit', edit_project_pap_action_path(@project, pap_action), remote: true   %> | 
-          <%= link_to 'Destroy', [@project, pap_action], method: :delete, data: { confirm: 'Are you sure?' }, remote: true   %></p>
+        <p>Notes: <%= pap_action.description %></p>
+        <p class="text-right">Action Preparations:<br>
+          <b><%= pap_action.state_of_action %></b></p>
+          
         </div>
       </div>
     </div>

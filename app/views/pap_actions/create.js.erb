@@ -1,2 +1,2 @@
-$('#pap_actions_table_list tbody').append('<tr id="pap_action_<%= @pap_action.id  %>">'+'<%= j render partial: "pap_action_table_row", locals: {pap_action: @pap_action} %>'+'</tr>');
+$('#pap_action_table_sortable').append('<tr id="pap_action_<%= @pap_action.id  %>">'+'<%= j render partial: "pap_action_table", locals: {pap_action: @pap_action} %>'+'</tr>');
 $("#new_pap_action").trigger("reset")
