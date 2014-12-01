@@ -1,0 +1,68 @@
+<%= form_for [@project, @pap_action], remote: true do |f| %>
+<% if @pap_action.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@pap_action.errors.count, "error") %> prohibited this pap_action from being saved:</h2>
+
+  <ul>
+    <% @pap_action.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="form-group">
+      <%= f.label :action_statement %><br />
+      <%= f.text_field :action_statement, class: "form-control"  %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6">
+    <div class="form-group">
+      <%= f.label :acting_person_title %><br />
+      <%= f.text_field :acting_person_title, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-xs-6">
+    <div class="form-group">
+      <%= f.label :acting_person %><br />
+      <%= f.text_field :acting_person, class: "form-control"  %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6">
+    <div class="form-group">
+      <%= f.label :priority %><br />
+      <%= f.select :priority, ([["Level 1, 'Top Priority'", 1], ["Level 2, 'Need This'", 2], ["Level 3, 'Want This'", 3, selected: "selected"], ["Level 4, 'Cool Idea'", 4], ["Level 5, 'Maybe Someday'", 5]]), {}, class: "form-control"  %>
+    </div>
+  </div>
+
+  <div class="col-xs-6">
+    <div class="form-group">
+      <%= f.label :state_of_action, "Is this action executable?" %><br />
+      <%= f.check_box :state_of_action, {}, "complete", "not ready" %> Preparations Complete
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :description, "Additional Notes" %><br />
+  <%= f.text_area :description, rows: 3, class: "form-control"  %>
+</div>
+
+
+<div class="actions" id="new_action_form_submit">
+  <%= f.submit class: "btn btn-primary" %>
+</div>
+
+<% end %>
+
+
+

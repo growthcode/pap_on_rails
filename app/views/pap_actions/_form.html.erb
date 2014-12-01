@@ -11,6 +11,8 @@
 </div>
 <% end %>
 
+<br>
+
 <div class="form-group">
   <%= f.label :action_statement %><br />
   <%= f.text_field :action_statement, class: "form-control"  %>
@@ -33,11 +35,11 @@
 </div>
 
 <div class="form-group">
-  <%= f.label :state_of_action %><br />
-  <%= f.check_box :state_of_action, {}, "complete", "not ready"  %>
+  <%= f.label :state_of_action, "Is this action executable?" %><br />
+  <%= f.check_box :state_of_action, {}, "complete", "not ready" %> Preparations Complete
 </div>
 <div class="actions" id="new_action_form_submit">
-  <%= f.submit %>
+  <%= f.submit class: "btn btn-primary" %>
 </div>
 
 <% end %>

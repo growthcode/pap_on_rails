@@ -12,13 +12,10 @@
 
 .pap_action_priority {
   width: 60px;
-  min-width: 5%;
-  max-width: 7%;
   text-align: center;
   height: 100%;
   .pap_action_priority_box {
     display: table-cell;
-    max-width: 100%;
     width: 50px;
     height: 40px;
     box-shadow: 0 0 10px #777777;
@@ -39,4 +36,7 @@
   font-size: 12px;
 }
 
-.pap_action_edit_delete {float:right}
+.pap_action_edit_delete {
+  float: right;
+  margin-left: 10px;
+}
