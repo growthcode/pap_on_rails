@@ -34,6 +34,7 @@ hethe = User.create!(
   password_confirmation: 'asdfasdf',
   organization: 'Faker_Seed'
 )
+
 hethe.projects.create!(
     [{project_name: "Perfect Sales Process"},
     {project_name: "WikiLogic App"},

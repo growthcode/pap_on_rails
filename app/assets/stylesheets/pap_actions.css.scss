@@ -1,3 +1,42 @@
 // Place all the styles related to the PapActions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.table tr>td.vert-bottom {
+  vertical-align: bottom;
+}
+
+.table tr>td.vert-middle {
+  vertical-align: middle;
+}
+
+.pap_action_priority {
+  width: 60px;
+  min-width: 5%;
+  max-width: 7%;
+  text-align: center;
+  height: 100%;
+  .pap_action_priority_box {
+    display: table-cell;
+    max-width: 100%;
+    width: 50px;
+    height: 40px;
+    box-shadow: 0 0 10px #777777;
+    box-shadow: 0 0 10px #000000;
+    background: #000080;
+    color: white;
+    border-radius: 10px;
+    vertical-align: middle;
+  }
+}
+
+.pap_action_toggle {
+  max-width: 90%;
+}
+  
+.pap_action_position {
+  color: lightgrey;
+  font-size: 12px;
+}
+
+

@@ -1,5 +1,3 @@
-console.log("in update pap_actions")
-
 $("#edit_pap_action_<%= @pap_action.id %>").remove();
-$("#pap_action_<%= @pap_action.id %>").html('<%= j render partial: "pap_action_table_row", locals: {pap_action: @pap_action} %>');
+$("#pap_action_<%= @pap_action.id %>").html('<%= j render partial: "pap_action_table", locals: {pap_action: @pap_action} %>');
 

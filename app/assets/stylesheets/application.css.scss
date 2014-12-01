@@ -16,11 +16,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.red_outline_hover:hover {
+.red_outline {
   outline: 1px solid red;
 }
-.blue_outline_hover {
-  outline: 2px solid blue;
+.blue_outline {
+  outline: 2px dashed blue;
 }
 
 .green_outline_hover:hover {
