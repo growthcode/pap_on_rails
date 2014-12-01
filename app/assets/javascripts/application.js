@@ -15,4 +15,5 @@
 //= require jquery.ui.sortable
 //= require jquery.ui.effect-highlight
 //= require bootstrap-sprockets
+//= require bootstrap
 //= require_tree .

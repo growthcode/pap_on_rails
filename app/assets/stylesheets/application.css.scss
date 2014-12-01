@@ -13,8 +13,8 @@
  *= require_tree .
  */
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import "../../../vendor/assets/stylesheets/bootstrap-sprockets";
+@import "../../../vendor/assets/stylesheets/bootstrap";
 
 .red_outline {
   outline: 1px solid red;
@@ -25,14 +25,5 @@
 
 .green_outline_hover:hover {
   outline: 2px dotted green;
-}
-
-.table_headline_and_create {
-  margin-top: 20px;
-  margin-bottom: 15px;
-}
-
-.zero_margin_headline {
-  margin: 0;
 }
 
