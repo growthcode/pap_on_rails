@@ -28,6 +28,8 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
+gem 'faker'
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
@@ -35,7 +37,6 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'console.log'
   gem 'awesome_print'
-  gem 'faker'
 end
 
 

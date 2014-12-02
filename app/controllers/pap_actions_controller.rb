@@ -38,7 +38,8 @@ class PapActionsController < ApplicationController
   def create
     current_project
     new_project_action
-
+    total_pap_actions = @project.pap_actions.all.length
+    @pap_action.position = total_pap_actions + 1
     respond_to do |format|
       if @pap_action.save
         format.js
