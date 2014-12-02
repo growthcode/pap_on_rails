@@ -1,2 +1,20 @@
+var priorityColorFetcherCreate = function() {
+  switch ($("#pap_action_<%= @pap_action.id %> .pap_action_priority_box").html()) {
+    case "1": return $("#pap_action_<%= @pap_action.id %>").addClass("pap_action_1");
+    case "2": return $("#pap_action_<%= @pap_action.id %>").addClass("pap_action_2");
+    case "3": return $("#pap_action_<%= @pap_action.id %>").addClass("pap_action_3");
+    case "4": return $("#pap_action_<%= @pap_action.id %>").addClass("pap_action_4");
+    case "5": return $("#pap_action_<%= @pap_action.id %>").addClass("pap_action_5");
+  }
+};
+
 $('#pap_action_table_sortable').append('<tr id="pap_action_<%= @pap_action.id  %>">'+'<%= j render partial: "pap_action_table", locals: {pap_action: @pap_action} %>'+'</tr>');
 $("#new_pap_action").trigger("reset")
+
+<% if @pap_action.state_of_action == "complete"  %>
+  $("#pap_action_<%= @pap_action.id %>").addClass("complete_state")
+<% else %>
+  $("#pap_action_<%= @pap_action.id %>").removeClass("complete_state")
+<% end %>
+
+priorityColorFetcherCreate()

@@ -28,7 +28,6 @@ jQuery ->
 
 
 
-
 priorityColorFetcher = (priority_box) ->
   switch $(priority_box).html()
     when "1"
