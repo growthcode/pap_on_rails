@@ -16,10 +16,9 @@
           <%= link_to 'Edit', edit_project_pap_action_path(@project, pap_action), remote: true   %> | 
           <%= link_to 'Delete', [@project, pap_action], method: :delete, data: { confirm: 'Are you sure?' }, remote: true   %>
         </div>
-        <p><%= pap_action.acting_person_title %>: <%= pap_action.acting_person %></p>
-        <p>Notes: <%= pap_action.description %></p>
-        <p class="text-right">Action Preparations:<br>
-          <b><%= pap_action.state_of_action %></b></p>
+        <p>Action Preparations: <b><%= pap_action.state_of_action %></b></p>
+        <p><%= pap_action.acting_person_title %> <%= pap_action.acting_person %></p>
+        <p><%= pap_action.description %></p>
           
         </div>
       </div>

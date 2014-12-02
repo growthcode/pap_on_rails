@@ -17,3 +17,19 @@ jQuery ->
         console.log("in the 'failure' callback function")
       .done -> 
         console.log("in the 'done' function")
+  $('.pap_action_priority_box').each ->
+  # # # the below doesn't work as a named function... can't figure out why... calls it undefined is not a function
+  # # # something to do with binding 'this'
+  #   papActionPriorityColorFetcher()
+  # papActionPriorityColorFetcher = ->
+    switch $(this).html()
+      when "1"
+        $(this).addClass("pap_action_1")
+      when "2"
+        $(this).addClass("pap_action_2")
+      when "3"
+        $(this).addClass("pap_action_3")
+      when "4"
+        $(this).addClass("pap_action_4")
+      when "5"
+        $(this).addClass("pap_action_5")
