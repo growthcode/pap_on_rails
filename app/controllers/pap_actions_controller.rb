@@ -57,6 +57,9 @@ class PapActionsController < ApplicationController
     respond_to do |format|
       if @pap_action.update_attributes(params[:pap_action])
         format.js
+        puts "==========================================="
+        puts @pap_action.state_of_action
+        puts "==========================================="
       else
         format.js { render action: "edit" }
       end

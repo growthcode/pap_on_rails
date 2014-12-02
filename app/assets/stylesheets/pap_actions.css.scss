@@ -20,7 +20,7 @@
     height: 40px;
     box-shadow: 0 0 10px #777777;
     box-shadow: 0 0 10px #000000;
-    background: #a05d3a;
+    background: #004080;
     color: white;
     border-radius: 10px;
     vertical-align: middle;
@@ -32,11 +32,57 @@
 }
   
 .pap_action_position {
-  color: lightgrey;
+  color: white;
+  text-shadow: 0px 0px 4px black;
   font-size: 12px;
 }
 
 .pap_action_edit_delete {
   float: right;
   margin-left: 10px;
+}
+
+.pap_action_1 {
+  background-color: rgba(255, 0, 0, .7);
+  &:hover {
+    background-color: rgba(255, 0, 0, 1);
+    outline: 2px solid black;
+  }
+} 
+.pap_action_2 {
+  background-color: rgba(255, 165, 0, .7);
+  &:hover {
+    background-color: rgba(255, 165, 0, 1);
+    outline: 2px solid black;
+  }
+}
+.pap_action_3 {
+  background-color: rgba(255, 255, 0, .6);
+  &:hover {
+    background-color: rgba(255, 255, 0, 1);
+    outline: 2px solid black;
+  }
+}
+.pap_action_4 {
+  background-color: rgba(208, 208, 208, .7);
+  &:hover {
+    background-color: rgba(208, 208, 208, 1);
+    outline: 2px solid black;
+  }
+}
+.pap_action_5 {
+  background-color: rgba(179, 179, 179, .7);
+  &:hover {
+    background-color: rgba(179, 179, 179, 1);
+    outline: 2px solid black;
+  }
+}
+
+
+.complete_state {
+  background-color: rgba(0, 165, 0, .7);
+  &:hover {
+    background-color: rgba(0, 165, 0, 1);
+    outline: 2px solid black;
+  }
 }

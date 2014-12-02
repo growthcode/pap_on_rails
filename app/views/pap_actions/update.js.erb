@@ -1,3 +1,9 @@
 $("#edit_pap_action_<%= @pap_action.id %>").remove();
 $("#pap_action_<%= @pap_action.id %>").html('<%= j render partial: "pap_action_table", locals: {pap_action: @pap_action} %>');
 
+
+<% if @pap_action.state_of_action == "complete"  %>
+  $("#pap_action_<%= @pap_action.id %>").addClass("complete_state")
+<% else %>
+  $("#pap_action_<%= @pap_action.id %>").removeClass("complete_state")
+<% end %>

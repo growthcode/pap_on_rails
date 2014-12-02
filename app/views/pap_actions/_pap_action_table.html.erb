@@ -1,4 +1,7 @@
-<td class="pap_action_priority vert-middle"><div class="pap_action_priority_box"><%= pap_action.priority %></div></td>
+<td class="pap_action_priority vert-middle">
+  <div class="pap_action_priority_box"><%= pap_action.priority %></div>
+</td>
+
 <td class="pap_action_toggle">
   <div class="pap_action_panel">
     <div class="panel panel-default">
@@ -16,7 +19,7 @@
           <%= link_to 'Edit', edit_project_pap_action_path(@project, pap_action), remote: true   %> | 
           <%= link_to 'Delete', [@project, pap_action], method: :delete, data: { confirm: 'Are you sure?' }, remote: true   %>
         </div>
-        <p>Action Preparations: <b><%= pap_action.state_of_action %></b></p>
+        <p class="check_box_state_of_action">Action Preparations: <b><%= pap_action.state_of_action %></b></p>
         <p><%= pap_action.acting_person_title %> <%= pap_action.acting_person %></p>
         <p><%= pap_action.description %></p>
           
