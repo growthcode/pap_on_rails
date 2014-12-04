@@ -7,11 +7,12 @@
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
       <table class="table  table-responsive table-hover-tr_td">
         <thead>
+          <%= render partial: "pap_action_header_table" %>
           <h1 id="headline_<%= @project.id %>" class="table_headline_and_create"><%= @project.project_name %></h1>
-        <p>
-          <%= link_to 'Update Name', edit_project_path(@project), remote: true %> |
-          <%= link_to 'Back (All Projects)', projects_path %>
-        </p>
+          <p>
+            <%= link_to 'Update Name', edit_project_path(@project), remote: true %> |
+            <%= link_to 'Back (All Projects)', projects_path %>
+          </p>
       </thead>
         <tbody id="pap_action_table_sortable" data-sort-url="<%= sort_project_pap_actions_path %>">
           <% @pap_actions.each do |pap_action| %>

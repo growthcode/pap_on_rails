@@ -1,0 +1,19 @@
+<h1 id="headline_<%= @project.id %>" class="table_headline_and_create"><%= @project.project_name %></h1>
+<p>
+  <%= link_to 'Update Name', edit_project_path(@project), remote: true %> |
+  <%= link_to 'Back (All Projects)', projects_path %>
+</p>
+<div>
+  <ul class="pagination">
+    <li class="active"><a href="#">1</a></li>
+    <li class="active"><a href="#">2</a></li>
+    <li class="active"><a href="#">3</a></li>
+    <li class="active"><a href="#">4</a></li>
+    <li class="active"><a href="#">5</a></li>
+  </ul>
+</div>
+<div class="btn-group" role="group" aria-label="...">
+  <button type="button" class="btn btn-default active">All Actions <span class="badge"><%= @project.number_of_pap_actions %></span></button>
+  <button type="button" class="btn btn-default">Complete <span class="badge"><%= @project.number_of_state_of_action_complete %></span></button>
+  <button type="button" class="btn btn-default">Not Ready <span class="badge"><%= @project.number_of_state_of_action_not_ready %></span></button>
+</div>
