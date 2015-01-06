@@ -23,10 +23,48 @@ jQuery ->
   $('.pap_action_priority_box').each (index, priority_box) ->
     priorityColorFetcher(priority_box)
 
+    $(".pagination li")
 
 
 
-
+pap_action_view_through_toggle = (priority_buttons) ->
+switch $(priority_buttons)
+  when $("#pap_action_view_through_1")
+    $("#pap_action_view_through_1").addClass("active")
+    $("#pap_action_view_through_2").removeClass("active")
+    $("#pap_action_view_through_3").removeClass("active")
+    $("#pap_action_view_through_4").removeClass("active")
+    $("#pap_action_view_through_5").removeClass("active")
+  when $("#pap_action_view_through_1")
+    $("#pap_action_view_through_1").addClass("active")
+    $("#pap_action_view_through_2").removeClass("active")
+    $("#pap_action_view_through_3").removeClass("active")
+    $("#pap_action_view_through_4").removeClass("active")
+    $("#pap_action_view_through_5").removeClass("active")
+  when $("#pap_action_view_through_2")
+    $("#pap_action_view_through_1").addClass("active")
+    $("#pap_action_view_through_2").addClass("active")
+    $("#pap_action_view_through_3").removeClass("active")
+    $("#pap_action_view_through_4").removeClass("active")
+    $("#pap_action_view_through_5").removeClass("active")
+  when $("#pap_action_view_through_3")
+    $("#pap_action_view_through_1").addClass("active")
+    $("#pap_action_view_through_2").addClass("active")
+    $("#pap_action_view_through_3").addClass("active")
+    $("#pap_action_view_through_4").removeClass("active")
+    $("#pap_action_view_through_5").removeClass("active")
+  when $("#pap_action_view_through_4")
+    $("#pap_action_view_through_1").addClass("active")
+    $("#pap_action_view_through_2").addClass("active")
+    $("#pap_action_view_through_3").addClass("active")
+    $("#pap_action_view_through_4").addClass("active")
+    $("#pap_action_view_through_5").removeClass("active")
+  when $("#pap_action_view_through_5")
+    $("#pap_action_view_through_1").addClass("active")
+    $("#pap_action_view_through_2").addClass("active")
+    $("#pap_action_view_through_3").addClass("active")
+    $("#pap_action_view_through_4").addClass("active")
+    $("#pap_action_view_through_5").addClass("active")
 
 priorityColorFetcher = (priority_box) ->
   switch $(priority_box).html()
