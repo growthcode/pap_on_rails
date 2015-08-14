@@ -37,6 +37,7 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'console.log'
   gem 'awesome_print'
+  gem 'railroady'
 end
 
 
